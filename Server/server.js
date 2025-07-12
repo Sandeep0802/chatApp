@@ -38,6 +38,11 @@ io.on("connection",(socket)=>{
 
 
 const PORT = process.env.PORT || 2000;
+
+app.get("/", (req, res) => {
+  res.send("Socket.io server running ✅");
+});
+
 server.listen(PORT,()=>{
  console.log(`🚀 Server running on port ${PORT}`);
 })
