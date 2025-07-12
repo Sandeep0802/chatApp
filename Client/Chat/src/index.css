@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  background: linear-gradient(to right top, #141e30, #243b55);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Full screen dark blurred background */
+.join_room {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at top left, #1f1c2c, #2a2a40);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  color: white;
+}
+
+/* Centered, glassy card */
+.join_room_form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+/* Heading with subtle gradient */
+.join_room_form h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* Input fields: minimal, glowing on focus */
+.join_room_form input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+
+.join_room_form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.join_room_form input:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
+}
+
+/* Gradient button */
+.join_room_form button {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.join_room_form button:hover {
+  background: linear-gradient(135deg, #49a09d, #5f2c82);
+  transform: scale(1.04);
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .join_room_form {
+    padding: 30px 20px;
+  }
+  .join_room_form h1 {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* === Shell === */
+.chatContainer {
+  max-width: 700px;
+  height: 80vh;                   /* full chat height */
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;         /* header ▸ body ▸ composer */
+  background: #1e1e2f;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  overflow: hidden;
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 24px;
+}
+
+/* Header */
+.chatContainer > h1 {
+  margin: 0;
+  padding: 16px;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background: linear-gradient(135deg,#2575fc,#6a11cb);
+   backdrop-filter: blur(8px);
+  background: rgba(30, 30, 47, 0.85); /* Semi-transparent */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* === Scroll area === */
+.chatBody {
+  flex: 1;                        /* takes remaining height */
+  overflow-y: auto;
+  padding: 20px 20px 0;           /* bottom 0, composer sits below */
+  background: #2a2a40;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scrollbar-width: none;
+}
+
+
+/* Messages */
+.messageContainer         { max-width: 80%; display: flex; flex-direction: column; }
+.messageContainer.sent     { align-self: flex-end; text-align: right; }
+.messageContainer.received { align-self: flex-start; text-align: left; }
+
+.message {
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 1rem;
+  display: inline-block;
+  word-break: break-word;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.sent .message     { background: linear-gradient(135deg,#6a11cb,#2575fc); color:#fff; border-bottom-right-radius:4px; }
+.received .message { background:#44445d; color:#eaeaf5; border-bottom-left-radius:4px; }
+
+.msgDetails {
+  margin-top:4px; font-size:0.75rem; opacity:0.7; display:flex; gap:8px; justify-content:flex-end;
+}
+.received .msgDetails { justify-content:flex-start; }
+
+/* === Fixed composer === */
+.composeBar {
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  background: #1e1e2f;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+
+.composeBar input {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  background: #f3f3f3;
+  color: #333;
+}
+.composeBar input:focus { box-shadow: 0 0 0 3px rgba(255,255,255,.15); }
+
+.composeBar button {
+  padding: 0 24px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg,#2575fc,#6a11cb);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+.composeBar button:hover { transform: scale(1.05); }
+
+/* Mobile tweaks */
+@media (max-width:480px){
+  .chatContainer   { height: 90vh; margin: 0 8px; }
+  .messageContainer{ max-width: 90%; }
+}
