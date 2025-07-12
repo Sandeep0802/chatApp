@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import io from "socket.io-client";
+import {io} from "socket.io-client";
 import Chat from "./Chat";
 import music from "../mixkit-tile-game-reveal-960.wav"
-const socket = io.connect(import.meta.env.VITE_SOCKET_URL);
+const socket = io(import.meta.env.VITE_SOCKET_URL);
 
 const App = () => {
   let [username, setUsername] = useState("");
